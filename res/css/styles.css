@@ -146,6 +146,6 @@ img {
 .output > p {
     padding: 1em;
     border: 1px solid red;
-    
+    color:white;
     background-color: #505050;
 }
