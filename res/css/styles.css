@@ -23,7 +23,7 @@ header{
 
     /*background image*/
     /*background: url("../img/house.jpg");    */
-    background-color: #353030; 
+    background-color: #282D2E; 
     /*background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;*/
@@ -136,4 +136,16 @@ section{
 img {
   width: 100%;
   display: block;
+}
+
+.dnd-input{
+    background-color: #AAD8E1;
+    padding: 1em;
+}
+
+.output > p {
+    padding: 1em;
+    border: 1px solid red;
+    
+    background-color: #505050;
 }
