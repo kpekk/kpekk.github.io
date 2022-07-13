@@ -23,7 +23,8 @@ header{
     height:70vh;
 
     /*background image*/
-    background: url("../img/house.jpg");     
+    /*background: url("../img/house.jpg");    */
+    background-color: #505050; 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
