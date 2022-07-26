@@ -18,16 +18,15 @@
 
 <body>
 
-  <div class = "dnd-input">
-
-    <label for="sides">Täringukülgi:</label>
-    <input type="number" id="sides" name="sides"><br><br>
-    <label for="throws">Viskeid:</label>
-    <input type="number" id="throws" name="throws"><br><br>
+  <br>
+  <br>
+  <div class="dice-select">
+    <button onclick="addDice()">Lisa täring</button>
+    <div id = "dices"></div>
     <button onclick="calculateThrows()">Kalkureeri</button>
-
   </div>
-  <div id="output" class = "output"></div>
+
+  <div id="output" class="output"></div>
 </body>
 
 

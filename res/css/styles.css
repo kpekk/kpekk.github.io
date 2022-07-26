@@ -22,11 +22,10 @@ header{
     height:70vh;
 
     /*background image*/
-    /*background: url("../img/house.jpg");    */
-    background-color: #282D2E; 
-    /*background-repeat: no-repeat;
+    background: url("../img/house.jpg");
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;*/
+    background-size: 100% 100%;
 
     
 }
@@ -105,9 +104,8 @@ section{
     width: 90%;
 
     /*the actual image, used as background in this case*/
-    /*background-image:url("../img/house.jpg");
-    background-repeat: no-repeat;*/
-    background-color: #505050; 
+    background-image:url("../img/house.jpg");
+    background-repeat: no-repeat;
 
     background-size: 100%;
     margin-left: 5%;
@@ -147,5 +145,5 @@ img {
     padding: 1em;
     border: 1px solid red;
     color:white;
-    background-color: #505050;
+    /*background-color: #505050;*/
 }

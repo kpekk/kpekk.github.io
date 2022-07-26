@@ -10,27 +10,88 @@ function deleteAllChildren(id) {
     }
 }
 
+// igas plokis saab valida, mitu n-küljelist täringut valida
+// nii saab valida nt 7 6-küljelist + 6 7-küljelist + ...
+function addDice() {
+    var tag = document.createElement("p")
+
+    //täringu külgede arv
+    var sidesText = document.createTextNode("Külgede arv: ");
+    tag.appendChild(sidesText);
+
+    var sides = document.createElement("input");
+    sides.setAttribute("id", "sides");
+    sides.setAttribute("type", "number");
+    tag.appendChild(sides);
+
+    //täringute arv
+    var amountText = document.createTextNode("Viskeid: ");
+    tag.appendChild(amountText);
+
+    var amount = document.createElement("input");
+    amount.setAttribute("id", "amount");
+    amount.setAttribute("type", "number");
+    tag.appendChild(amount);
+
+    // bloki kustutamise nupp
+    var deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "X";
+    deleteBtn.onclick = function () {
+        tag.remove();
+    }
+    tag.appendChild(deleteBtn);
+
+
+    // lisame elemendi div-i "test"
+    var element = document.getElementById("dices");
+    element.appendChild(tag);
+}
+
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
 function calculateThrows() {
 
-    // clear previous throws
+    // eemaldame eelnevad veeretamised
     deleteAllChildren("output")
 
-    // how many sides do the dice have
-    var sides = document.getElementById("sides").value
+    let dices = document.getElementById("dices").childNodes;
 
-    // amount of throws
-    var throws = document.getElementById("throws").value
+    // iga täringu kohta:
+    dices.forEach(dice => {
 
-    if (sides && throws) {
-        for (let i = 0; i < throws; i++) {
-            //text += cars[i] + "<br>";
+        // täringu küljed
+        var sides = dice.querySelector("#sides").value;
+        //console.log("külgi: " + dice.querySelector("#sides").value);
 
-            var tag = document.createElement("p")
-            var dmg = Math.floor(Math.random() * (sides) + 1)
-            var text = document.createTextNode("dmg: " + dmg);
-            tag.appendChild(text);
-            var element = document.getElementById("output");
-            element.appendChild(tag);
+        // visete arv
+        var throws = dice.querySelector("#amount").value;
+        //console.log("viskeid: " + dice.querySelector("#amount").value);
+
+        // visete värv (eristamiseks)
+        var diceColor = randomColor();
+
+        //teeme visked:
+        if (sides && throws) {
+            for (let i = 0; i < throws; i++) {
+                //text += cars[i] + "<br>";
+
+                var tag = document.createElement("p");
+                tag.style.background = diceColor;
+                var dmg = Math.floor(Math.random() * (sides) + 1);
+                var text = document.createTextNode("dmg: " + dmg);
+                tag.appendChild(text);
+                var element = document.getElementById("output");
+                element.appendChild(tag);
+            }
         }
-    }
+    })
+
+    //todo total
 }
