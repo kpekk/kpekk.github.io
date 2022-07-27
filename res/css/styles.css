@@ -141,9 +141,22 @@ img {
     padding: 1em;
 }
 
-.output > p {
+.throw {
+    margin: 0.5em;
+    padding: 1em;
+    border: 2px solid red;
+    color:white;
+
+    /*kommenteeri välja et visked terve rea võtaks*/
+    display:inline-block;
+    
+}
+
+.output > .total {
+    width:100%;
+    
     padding: 1em;
     border: 1px solid red;
     color:white;
-    /*background-color: #505050;*/
+    background-color: #505050;
 }

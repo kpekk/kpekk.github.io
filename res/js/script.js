@@ -123,6 +123,7 @@ function calculateThrows() {
 
                 var tag = document.createElement("p");
                 tag.style.background = diceColor;
+                tag.setAttribute("class","throw");
 
 
                 var dmg = Math.floor(Math.random() * (sides) + 1);
@@ -150,11 +151,13 @@ function calculateThrows() {
                 element.appendChild(tag);
             }
 
+            // dice total
             var tag = document.createElement("p");
             var text = document.createTextNode("dice dmg: " + diceTotal);
             tag.appendChild(text);
             tag.style.background = "gray";
             var element = document.getElementById("output");
+            tag.setAttribute("class","total");
             element.appendChild(tag);
         }
     })
@@ -164,7 +167,10 @@ function calculateThrows() {
     tag.appendChild(text);
     tag.style.background = "gray";
     var element = document.getElementById("output");
+    tag.setAttribute("class","total");
     element.appendChild(tag);
 
-    //todo total
+    //todo viske värv punane kui critical hit (20 dicel 20)
+    // ühe viske kast väiksemaks
+    // armorclass
 }
