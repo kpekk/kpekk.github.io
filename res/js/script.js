@@ -67,8 +67,9 @@ function addDice() {
     }
     tag.appendChild(deleteBtn);
 
+    tag.style.padding = "0.5em";
 
-    // lisame elemendi div-i "test"
+    // lisame elemendi div-i "dices"
     var element = document.getElementById("dices");
     element.appendChild(tag);
 }
@@ -88,6 +89,7 @@ function calculateThrows() {
     deleteAllChildren("output")
 
     let dices = document.getElementById("dices").childNodes;
+    var element = document.getElementById("output"); //parent node
 
     var total = 0;
     var diceTotal = 0;
@@ -151,22 +153,20 @@ function calculateThrows() {
                 element.appendChild(tag);
             }
 
-            // dice total
+            // die total
             var tag = document.createElement("p");
-            var text = document.createTextNode("dice dmg: " + diceTotal);
+            var text = document.createTextNode("d"+ sides +" total: " + diceTotal);
             tag.appendChild(text);
             tag.style.background = "gray";
-            var element = document.getElementById("output");
             tag.setAttribute("class","total");
             element.appendChild(tag);
         }
     })
 
     var tag = document.createElement("p");
-    var text = document.createTextNode("total dmg: " + total);
+    var text = document.createTextNode("ALL DICE TOTAL: " + total);
     tag.appendChild(text);
     tag.style.background = "gray";
-    var element = document.getElementById("output");
     tag.setAttribute("class","total");
     element.appendChild(tag);
 
