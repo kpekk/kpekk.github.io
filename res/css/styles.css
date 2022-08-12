@@ -152,6 +152,7 @@ img {
     
 }
 
+
 .output > .total {
     width:100%;
     
@@ -159,4 +160,12 @@ img {
     border: 1px solid red;
     color:white;
     background-color: #505050;
+}
+
+/*petsi vabanduse generaator*/
+.pets-heading{
+    width:100%;
+    font-size: 1.8em;
+    padding: 5%;
+    background-color: #AAD8E1;
 }
