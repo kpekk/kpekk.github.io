@@ -21,6 +21,7 @@ function addDice() {
 
     //täringu külgede arv
     var sidesText = document.createTextNode("Külgede arv: ");
+    //sidesText.setAttribute("class", "dice-text");
     tag.appendChild(sidesText);
 
     var sides = document.createElement("input");
@@ -30,6 +31,7 @@ function addDice() {
 
     //täringute arv
     var amountText = document.createTextNode("Viskeid: ");
+    //amountText.setAttribute("class", "dice-text");
     tag.appendChild(amountText);
 
     var amount = document.createElement("input");
@@ -41,7 +43,7 @@ function addDice() {
     //advantage
     var advantageText = document.createTextNode("advantage: ");
     tag.appendChild(advantageText);
-    var advantage = document.createElement("INPUT");
+    var advantage = document.createElement("input");
     advantage.setAttribute("id", "advantage");
     advantage.setAttribute("type", "checkbox");
     tag.appendChild(advantage);
@@ -49,7 +51,7 @@ function addDice() {
     //disadvantage
     var disadvantageText = document.createTextNode("disadvantage: ");
     tag.appendChild(disadvantageText);
-    var disadvantage = document.createElement("INPUT");
+    var disadvantage = document.createElement("input");
     disadvantage.setAttribute("id", "disadvantage");
     disadvantage.setAttribute("type", "checkbox");
     tag.appendChild(disadvantage);
@@ -71,20 +73,9 @@ function addDice() {
     }
     tag.appendChild(deleteBtn);
 
-    tag.style.padding = "0.5em";
-
     // lisame elemendi div-i "dices"
     var element = document.getElementById("dices");
     element.appendChild(tag);
-}
-
-function randomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
 }
 
 function calculateThrows() {
@@ -119,8 +110,6 @@ function calculateThrows() {
         // disadvantage
         var disadvantage = dice.querySelector("#disadvantage");
 
-        // visete värv (eristamiseks)
-        var diceColor = randomColor();
 
         //teeme visked:
         if (sides && throws) {
@@ -128,7 +117,6 @@ function calculateThrows() {
                 //text += cars[i] + "<br>";
 
                 var tag = document.createElement("p");
-                tag.style.background = diceColor;
                 tag.setAttribute("class","throw");
 
 
@@ -151,7 +139,7 @@ function calculateThrows() {
                 total += +dmg;
                 diceTotal += +dmg;
 
-                var text = document.createTextNode("dmg: " + dmg);
+                var text = document.createTextNode(dmg);
                 tag.appendChild(text);
                 var element = document.getElementById("output");
                 element.appendChild(tag);
@@ -161,7 +149,6 @@ function calculateThrows() {
             var tag = document.createElement("p");
             var text = document.createTextNode("d"+ sides +" total: " + diceTotal);
             tag.appendChild(text);
-            tag.style.background = "gray";
             tag.setAttribute("class","total");
             element.appendChild(tag);
         }
@@ -170,7 +157,6 @@ function calculateThrows() {
     var tag = document.createElement("p");
     var text = document.createTextNode("ALL DICE TOTAL: " + total);
     tag.appendChild(text);
-    tag.style.background = "gray";
     tag.setAttribute("class","total");
     element.appendChild(tag);
 

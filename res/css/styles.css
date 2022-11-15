@@ -1,9 +1,4 @@
-/*html { 
-    /*scrolling*/
-    /*
-    overflow-y: scroll; 
-    overflow-x:hidden; 
-    */
+
 body {
     /*full-screen layout type, no margins unless specified*/
     margin: 0;
@@ -136,31 +131,9 @@ img {
   display: block;
 }
 
-.dnd-input{
-    background-color: #AAD8E1;
-    padding: 1em;
-}
-
-.throw {
-    margin: 0.5em;
-    padding: 1em;
-    border: 2px solid red;
-    color:white;
-
-    /*kommenteeri välja et visked terve rea võtaks*/
-    display:inline-block;
-    
-}
 
 
-.output > .total {
-    width:100%;
-    
-    padding: 1em;
-    border: 1px solid red;
-    color:white;
-    background-color: #505050;
-}
+
 
 /*petsi vabanduse generaator*/
 .pets-heading{
@@ -169,3 +142,5 @@ img {
     padding: 5%;
     background-color: #AAD8E1;
 }
+
+
