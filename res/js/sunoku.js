@@ -68,10 +68,31 @@ function nokuLaud () {
 function selectNumber(){
     if (numSelected != null) {
         numSelected.classList.remove("number-selected");
+
+        // highlight digits on board
+        for (let m = 0; m < 9; m ++){
+            for (let n = 0; n < 9; n++){
+                if (board[m][n] == numSelected.innerText ){
+                    document.getElementById(m+""+n).classList.remove("number-selected");
+                }
+            }
+        }
     }
+    
     numSelected = this;
     numSelected.classList.add("number-selected");
+
+    // remove highlight
+    for (let m = 0; m < 9; m ++){
+        for (let n = 0; n < 9; n++){
+            if (board[m][n] == numSelected.innerText ){
+                document.getElementById(m+""+n).classList.add("number-selected");
+            }
+        }
+    }
 }
+
+
 
 // slam a number into a box
 function selectTile() {
@@ -130,14 +151,13 @@ function validateBoard() {
         for (let l = 0; l < 9; l+=3){
             // blocks to NOT check:
             if (!(k == 0 && l == 0) && !(k == 3 && l == 0) && !(k == 0 && l == 6) && !(k == 3 && l == 6)){
-                //console.log(k,l);
                 if (!isValidCell(k, l)){
                     errorTxt = "mingi 9-ne plokk on väär (a ma ei tea milline)";
                 }
             }
         }
     }
-    console.table(board);
+
     for (let m = 0; m < 9; m ++){
         for (let n = 0; n < 9; n++){
             if (board[m][n] == "." ){
@@ -145,7 +165,6 @@ function validateBoard() {
             }
         }
     }
-
 
     if (errorTxt == ""){
         document.getElementById("errorMsg").innerText = "omg õige, see pole vist essa sunoku mida lahendad";
