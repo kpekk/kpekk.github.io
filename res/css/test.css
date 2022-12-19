@@ -30,6 +30,11 @@ body{
     transform: skewX(-11deg);
 
     line-height: 100vh;
+    z-index: 1;
+}
+
+.diagonal:hover {
+    z-index: 2;
 }
 
 ._1:hover{
