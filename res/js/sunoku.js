@@ -2,14 +2,14 @@
 var numSelected = null;
 var tileSelected = null;
 let board = [[0,0,0,6,7,8,0,0,0],
-            [0,0,0,1,9,5,0,0,0],
+            [0,0,0,1,9,".",0,0,0],
             [0,0,0,3,4,2,0,0,0],
-            [0,0,0,7,6,1,0,0,0],
+            [0,0,0,".",6,1,0,0,0],
             [0,0,0,8,5,3,0,0,0], 
-            [0,0,0,9,2,4,0,0,0],
-            [9,6,1,5,3,7,2,8,4],
-            [2,8,7,4,1,9,6,3,5],
-            [3,4,5,2,8,6,1,7,9]];
+            [0,0,0,9,2,".",0,0,0],
+            [9,6,1,5,3,7,2,8,"."],
+            [2,8,".",4,1,".",6,3,5],
+            [3,4,5,2,".",6,1,7,9]];
 
 window.onload = function () {
     nokuLaud();
@@ -39,6 +39,9 @@ function nokuLaud () {
             // excluding "0"-s aka making the board shaped like a dick
             if (board[i][j] != 0) {
                 ruut.innerText = board[i][j];
+                if (board[i][j] == "."){
+                    ruut.innerText = "";
+                }
 
                 //separator lines or whatever
                 if (i == 2 || i == 5) {
@@ -105,10 +108,8 @@ function isValidCol(col_num) {
 
 function isValidCell(row_num, col_num){
     let vals = board[row_num].slice(col_num, col_num + 3);
-    console.log(vals);
     vals.push.apply(vals, board[row_num + 1].slice(col_num, col_num + 3));
     vals.push.apply(vals, board[row_num + 2].slice(col_num, col_num + 3));
-    console.log(vals);
     let valsSet = new Set(vals);
     return valsSet.size == 9;
 }
@@ -129,10 +130,18 @@ function validateBoard() {
         for (let l = 0; l < 9; l+=3){
             // blocks to NOT check:
             if (!(k == 0 && l == 0) && !(k == 3 && l == 0) && !(k == 0 && l == 6) && !(k == 3 && l == 6)){
-                console.log(k,l);
+                //console.log(k,l);
                 if (!isValidCell(k, l)){
                     errorTxt = "mingi 9-ne plokk on väär (a ma ei tea milline)";
                 }
+            }
+        }
+    }
+    console.table(board);
+    for (let m = 0; m < 9; m ++){
+        for (let n = 0; n < 9; n++){
+            if (board[m][n] == "." ){
+                errorTxt = "ei jäta ruute tühjaks";
             }
         }
     }
