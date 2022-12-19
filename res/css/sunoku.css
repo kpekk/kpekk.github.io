@@ -37,7 +37,7 @@ button {
 
 #board {   
     height: 48.9vh;
-    width: 48.9vh;
+    width: 47.8vh;
 
     margin: 0 auto;
     display: flex;
@@ -49,7 +49,7 @@ button {
     padding:0;
     width: 5vh;
     height: 5vh;
-    border: 0.1vw solid rgb(0, 0, 0);
+    border: 0.1vh solid rgb(0, 0, 0);
     background-color: rgb(71, 71, 71);
     font-size: 1rem;
     font-weight: bold;
@@ -65,10 +65,6 @@ button {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-}
-
-.bottom {
-    border: 0.1vw solid black;
 }
 
 .number-selected {

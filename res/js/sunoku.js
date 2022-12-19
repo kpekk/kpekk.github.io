@@ -24,7 +24,6 @@ function nokuLaud () {
         number.innerText = k;
         number.addEventListener("click", selectNumber);
         number.classList.add("ruut");
-        number.classList.add("bottom");
         document.getElementById("digits").appendChild(number);
     }
 
@@ -45,15 +44,15 @@ function nokuLaud () {
 
                 //separator lines or whatever
                 if (i == 2 || i == 5) {
-                    ruut.style.borderBottom = "0.1vw solid gray";
+                    ruut.style.borderBottom = "0.1vh solid gray";
                 }
                 if ((j == 2 || j == 5) && i > 5) {
-                    ruut.style.borderRight = "0.1vw solid gray";
+                    ruut.style.borderRight = "0.1vh solid gray";
                 }
                 ruut.addEventListener("click", selectTile);
                 
             } else {
-                ruut.style.border = "0.1vw solid rgb(26, 25, 25)";
+                ruut.style.border = "0.1vh solid rgb(26, 25, 25)";
                 ruut.style.backgroundColor = "rgb(26, 25, 25)";
             }
             
