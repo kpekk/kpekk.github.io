@@ -104,6 +104,7 @@ function selectTile() {
         
         this.innerText = numSelected.id;
         board[i][j] = parseInt(numSelected.id); // also change the board variable (req. for easier validation)
+        document.getElementById(i+""+j).classList.add("number-selected");
     }
 }
 
