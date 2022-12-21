@@ -1,138 +1,14 @@
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     /*full-screen layout type, no margins unless specified*/
     margin: 0;
     padding: 0;
-    width: 100%;
-    position: absolute; 
 }
-
-/*vh = view height; 100vh = terve ekraan
- px = pigem ära kasuta
- em = parenti fondi suurus | fondi jaoks
- rem = üldine fondi suurus | fondi jaoks
-*/
-header{
-    width:100%;
-    height:70vh;
-
-    /*background image*/
-    background: url("../img/house.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-
-    
-}
-section{
-    height: 140vh;
-}
-.centered{
-    /*display logo & company name in the middle of the header*/
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    /*align-items: center;
-    text-align: center;*/
-    line-height: 15vh; 
-
-}
-.company_name{
-    color: white;
-    font-family:"Gill Sans", sans-serif;
-    font-weight: 900;
-    font-size: larger;
-}
-.custom_hr{
-    size: 2;
-    width: 10%;
-}
-.custom_vr{
-    border-left: 2px solid white;
-}
-.navbar{
-    /*position*/
-    width: 100%;
-    position: fixed;
-    padding-top: 3vh;
-
-    /*display contents*/
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    z-index: 5; 
-}
-.navbar a{
-    /*how the navbar text looks like*/
-    text-decoration: none;
-    color: white;
-}
-
-
-.overlap{
-    /*position and size*/
-    position:absolute;
-    left:7%;
-    top:80vh;
-    width: 86%;
-    height: 80vh;
-
-    /*background*/
-    background-image:url("../img/wood-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-
-    z-index: -1;
-}
-.fixx{
-    height: 30%;
-    margin-left: 25%;
-    margin-top: 100vh;
-    width: 50%;
-}
-.big{
-    /*position and size*/
-    position: relative;
-    height: 60vh;
-    width: 90%;
-
-    /*the actual image, used as background in this case*/
-    background-image:url("../img/house.jpg");
-    background-repeat: no-repeat;
-
-    background-size: 100%;
-    margin-left: 5%;
-    margin-top: 5%;
-
-    z-index: 1;
-}
-.image-stack {
-  display: grid;
-  position: relative; 
-  grid-template-columns: repeat(12, 1fr);
-}
-
-.image-stack__item--bottom {
-  grid-column: 4 / -1;
-  grid-row: 1;
-}
-
-.image-stack__item--top {
-  grid-row: 1;
-  grid-column: 1 / span 8;
-  padding-top: 20%;
-  z-index: 1;
-}
-
-img {
-  width: 100%;
-  display: block;
-}
-
-
-
 
 
 /*petsi vabanduse generaator*/

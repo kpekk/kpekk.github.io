@@ -1,5 +1,8 @@
 /*test main page*/
 
+html {
+    font-size: 3vh;
+}
 
 body{
     background-color:rgb(33, 33, 33);
@@ -38,19 +41,19 @@ body{
 }
 
 ._1:hover{
-    box-shadow: 0px 0px 20px 10px rgb(255, 38, 0);
+    box-shadow: 0 0 1vw 0.5vw rgb(255, 38, 0);
 }
 ._2:hover{
-    box-shadow: 0px 0px 20px 10px rgb(147, 255, 24);
+    box-shadow: 0 0 1vw 0.5vw rgb(147, 255, 24);
 }
 ._3:hover{
-    box-shadow: 0px 0px 20px 10px rgb(0, 47, 255);
+    box-shadow: 0 0 1vw 0.5vw rgb(0, 47, 255);
 }
 ._4:hover{
-    box-shadow: 0px 0px 20px 10px rgb(255, 0, 221);
+    box-shadow: 0 0 1vw 0.5vw rgb(255, 0, 221);
 }
 
-a:visited{
+a, a:visited{
     color:white;
 }
 a.fill-div {
