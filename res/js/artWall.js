@@ -181,4 +181,3 @@ function initDrag(e) {
     this.removeEventListener('mousemove', doDrag, false);    this.removeEventListener('mouseup', stopDrag, false);
  }
  
-  

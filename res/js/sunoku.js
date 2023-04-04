@@ -174,3 +174,4 @@ function validateBoard() {
         document.getElementById("errorMsg").style.color = "red";
     }
 }
+

@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html id="html">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>$$$$$</title>
+    <meta name="description" content="big money">
+    <meta name="author" content="Pekk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../res/css/investments.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../res/js/investments.js"></script>
+
+</head>
+
+<body>
+
+    <div id="content">
+        <div class="inputs">
+            <div class="input-item">
+                <label for="initialSum">Algne summa</label>
+                <input type="number" name="initialSum" id="initialSum" value="1000" />
+            </div>
+
+            <div class="input-item">
+                <label for="yearlyContribution">Iga-aastane panus</label>
+                <input type="number" name="yearlyContribution" id="yearlyContribution" value="1000" />
+            </div>
+
+            <div class="input-item">
+                <label for="years">Kogun .. aastat</label>
+                <input type="number" name="years" id="years" value="5" />
+            </div>
+
+            <div class="input-item">
+                <label for="interest">Intress</label>
+                <input type="number" name="interest" id="interest" value="0.08" />
+            </div>
+        </div>
+
+        <button onclick="drawGraph()">Anna laksu</button>
+
+    </div>
+
+    <div id="chart">
+    </div>
+
+    <div id="stats">
+    </div>
+
+
+
+</body>
+
+
+
+</html>

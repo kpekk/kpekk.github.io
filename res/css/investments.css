@@ -1,0 +1,13 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.inputs {
+    display: flex;
+}
+
+.input-item {
+    width: 45vw;
+    margin: 1vw;
+}
