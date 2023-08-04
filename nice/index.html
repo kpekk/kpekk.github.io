@@ -1,0 +1,62 @@
+<style>
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(21, 18, 22);
+    }
+
+    .dick {
+        height: 80vh;
+        width: 100%;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+        margin: 0 auto;
+    }
+
+    path {
+        fill: rgb(21, 18, 22);
+        stroke: rgb(255, 255, 255);
+        stroke-width: 0.2;
+        stroke-dasharray: 50;
+        animation: dash 20s linear infinite;
+
+    }
+
+    @keyframes dash {
+        to {
+            stroke-dashoffset: 500;
+        }
+    }
+
+    .message {
+        height: 18vh;
+        color: aliceblue;
+        font-size: 3rem;
+        font-family: monospace;
+        text-align: center;
+    }
+</style>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="dick">
+    <svg viewBox="0 0 100 100">
+        <path d="M 65,80 
+        a 3,3 1 0,0 -5,-25 
+        v -30
+        a 3,3 1 0,0 -20,0 
+        v 30
+        a 3,3 1 0,0 -5,25    
+        z" />
+    </svg>
+</div>
+<div class="message">nice cock!</div>
