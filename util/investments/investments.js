@@ -6,7 +6,7 @@ function drawGraph() {
     let startingCapital = parseInt(document.getElementById("initialSum").value);
     let yearlyContribution = parseInt(document.getElementById("yearlyContribution").value);
 
-    let skilled = false;
+    let skilled = false; // not used atm
 
     let totalBalance = startingCapital;
     let totalInvested = startingCapital;

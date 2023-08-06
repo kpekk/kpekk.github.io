@@ -165,21 +165,3 @@ function calculateThrows() {
     // armorclass
 }
 
-// petsi vabanduste generaator
-
-const generateExcuse = () =>{
-    const allExcuses = ['mu vanaemal on sünnipäev','mu õel on sünnipäev', 'mu emal on sünnipäev', 'mu isal on sünnipäev',
-        'mul on janu', 'mul on nälg', 'ma pean jõuksi minema', 'mul on poeg', 'mul on tütar', 'õues on liiga külm', 'õues on liiga soe'];
-    
-    const excuse = allExcuses[Math.floor(Math.random()*11)];
-
-    deleteAllChildren("pets-response")
-
-    const element = document.getElementById("pets-response"); //parent node
-    let tag = document.createElement("p");
-    let text = document.createTextNode(excuse);
-    tag.appendChild(text);
-    tag.style['font-size'] = '2em';
-    tag.style['padding'] = '2%';
-    element.appendChild(tag);
-}

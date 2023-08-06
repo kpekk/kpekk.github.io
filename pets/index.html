@@ -1,32 +1,102 @@
+<style>
+	body {
+		background-color: #252829;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.pets-heading {
+		height: 15vh;
+		min-height: 80px;
+		font-size: 2rem;
+		text-align: center;
+
+		color: aliceblue;
+	}
+
+	#pets-response {
+		height: 40vh;
+		visibility: hidden;
+
+		text-align: center;
+		color: rgb(255, 255, 255);
+		text-shadow: 0 0 3vh #FF0000;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	p {
+		font-size: 2rem;
+	}
+
+	.pets-button {
+		margin: 0 auto;
+		cursor: pointer;
+		user-select: none;
+		display: inline-block;
+
+		font-size: 2rem;
+		color: aliceblue;
+
+		border-radius: 1rem;
+		padding: 1rem;
+		border: 0.1rem solid aliceblue;
+	}
+</style>
+
 <!doctype html>
 
 <html>
 
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <title>petsi vabanduste generaator</title>
+	<title>petsi vabanduste generaator</title>
 
-  <meta name="description" content="in development">
-  <meta name="author" content="Chris Peak">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="../res/css/styles.css">
-  <script src="../res/js/script.js"></script>
-
+	<meta name="author" content="Pekk">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-
-
 <body>
-
-    <div class = "pets-heading">Sorri kutid, ma ei saa täna välja tulla sest</div>
-    <div id = "pets-response"></div>
-    <br><br><br>
-    <div class = "pets-again" style="padding: 2%">
-        <button class="petsi-nupp"  onclick="generateExcuse()" >Ei Pets, tule ikka!</button></div>
+	<div class="pets-heading">Sorri kutid, ma ei saa täna välja tulla</div>
+	<div id="pets-response"></div>
+	<div class="pets-button" onclick="generateExcuse()">Ei Pets, tule ikka!</div>
 </body>
 
-
-
 </html>
+
+<script>
+
+	function deleteAllChildren(parentId) {
+		let parent = document.getElementById(parentId);
+
+		if (parent) {
+
+			let child = parent.firstElementChild;
+			while (child) {
+				parent.removeChild(child);
+				child = parent.lastElementChild;
+			}
+		}
+	}
+
+	const generateExcuse = () => {
+		const allExcuses = ['mu vanaemal on sünnipäev', 'mu õel on sünnipäev', 'mu emal on sünnipäev', 'mu isal on sünnipäev',
+			'mul on janu', 'mul on nälg', 'ma pean jõuksi minema', 'mul on poeg', 'mul on tütar', 'õues on liiga külm', 'õues on liiga soe',
+		'maximas on õlu liiga kallis', 'ma nägin oravat', 'minust saab homme president'];
+
+		const excuse = allExcuses[Math.floor(Math.random() * 14)];
+
+		deleteAllChildren("pets-response")
+
+		const element = document.getElementById("pets-response");
+		let tag = document.createElement("p");
+		let text = document.createTextNode(excuse);
+		tag.appendChild(text);
+		element.appendChild(tag);
+		element.style.visibility = 'visible'
+	}
+</script>

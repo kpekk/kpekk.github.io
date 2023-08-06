@@ -1,35 +1,73 @@
+<style>
+    body {
+        background-color: rgb(33, 33, 33);
+    }
+
+    .dice-select {
+        border: 1px solid red;
+    }
+
+    .throw {
+        margin: 0.5em;
+        padding: 1em;
+
+        width: 1%;
+        border-radius: 30%;
+
+        font-weight: 800;
+        color: black;
+        text-align: center;
+
+        /*kommenteeri välja et visked terve rea võtaks*/
+        display: inline-block;
+
+    }
+
+    #dices>p {
+        color: red;
+    }
+
+    .throw {
+        background-color: #63bf7c;
+    }
+
+    .total {
+        width: 100%;
+        padding: 1em;
+        background-color: #363636;
+
+        color: white;
+
+    }
+</style>
+
 <!doctype html>
 
 <html>
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>kyoto</title>
-  <meta name="description" content="in development">
-  <meta name="author" content="Chris Peak">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnd dice roller</title>
+    <meta name="author" content="Pekk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../res/css/dnd_styles.css">
-  <script src="../res/js/script.js"></script>
+    <script src="script.js"></script>
 
 </head>
 
-
-
 <body>
 
-  <br>
-  <br>
-  <div class="dice-select">
-    <button onclick="addDice()">Lisa täring</button>
-    <div id = "dices"></div>
+    <div class="dice-select">
+        <button onclick="addDice()">Add dice</button>
+        <div id="dices"></div>
+    </div>
+
     <button onclick="calculateThrows()">Roll it</button>
-  </div>
 
 
 
-  <div id="output" class="output"></div>
+    <div id="output" class="output"></div>
 </body>
 
 
