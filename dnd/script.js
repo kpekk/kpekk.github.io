@@ -20,7 +20,7 @@ function addDice() {
     var tag = document.createElement("p")
 
     //täringu külgede arv
-    var sidesText = document.createTextNode("Külgede arv: ");
+    var sidesText = document.createTextNode("d");
     //sidesText.setAttribute("class", "dice-text");
     tag.appendChild(sidesText);
 
@@ -30,7 +30,7 @@ function addDice() {
     tag.appendChild(sides);
 
     //täringute arv
-    var amountText = document.createTextNode("Viskeid: ");
+    var amountText = document.createTextNode("Throws: ");
     //amountText.setAttribute("class", "dice-text");
     tag.appendChild(amountText);
 

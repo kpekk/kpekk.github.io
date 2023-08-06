@@ -1,11 +1,51 @@
 <style>
     body {
+        margin: 0;
         background-color: rgb(33, 33, 33);
+        display: flex;
     }
 
     .dice-select {
-        border: 1px solid red;
+        background-color: rgb(56, 56, 56);
+        width: 40%;
+        padding: 10px;
     }
+
+    .dice-control {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .dice-button {
+        cursor: pointer;
+        user-select: none;
+        color: aliceblue;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: inline;
+        border: 1px solid aliceblue;
+        border-radius: 1rem;
+    }
+
+    .dice-button:hover {
+        border: 1px solid red;
+        box-shadow: 0 0 1rem red;
+    }
+
+    #dices p {
+        border: 1px solid aliceblue;
+        border-radius: 0.5rem;
+        padding: 5px;
+        color: aliceblue;
+
+    }
+
+    p input {
+        width: 60px;
+        margin-right: 5px;
+    }
+
 
     .throw {
         margin: 0.5em;
@@ -21,15 +61,11 @@
         /*kommenteeri välja et visked terve rea võtaks*/
         display: inline-block;
 
-    }
-
-    #dices>p {
-        color: red;
-    }
-
-    .throw {
         background-color: #63bf7c;
+
     }
+
+
 
     .total {
         width: 100%;
@@ -59,15 +95,19 @@
 <body>
 
     <div class="dice-select">
-        <button onclick="addDice()">Add dice</button>
+        <div class="dice-control">
+            <div onclick="addDice()" class="dice-button">Add dice</div>
+            <div onclick="calculateThrows()" class="dice-button">Roll all</div>
+            <div class="dice-button danger">Remove all</div>
+        </div>
+
         <div id="dices"></div>
     </div>
 
-    <button onclick="calculateThrows()">Roll it</button>
-
-
-
     <div id="output" class="output"></div>
+
+
+
 </body>
 
 
