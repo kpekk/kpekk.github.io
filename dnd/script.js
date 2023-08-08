@@ -2,16 +2,16 @@
 function deleteAllChildren(id) {
     let e = document.getElementById(id);
 
-    if(e){
+    if (e) {
 
         //e.firstElementChild can be used.
-    let child = e.firstElementChild;
-    while (child) {
-        e.removeChild(child);
-        child = e.lastElementChild;
+        let child = e.firstElementChild;
+        while (child) {
+            e.removeChild(child);
+            child = e.lastElementChild;
+        }
     }
-    }
-    
+
 }
 
 // igas plokis saab valida, mitu n-küljelist täringut valida
@@ -19,9 +19,17 @@ function deleteAllChildren(id) {
 function addDice() {
     var tag = document.createElement("p")
 
-    //täringu külgede arv
+    //dice count
+    var amount = document.createElement("input");
+    amount.setAttribute("id", "amount");
+    amount.setAttribute("type", "number");
+    amount.placeholder = 1
+    amount.value = 1
+    amount.min = 1
+    tag.appendChild(amount);
+
+    // dice sides
     var sidesText = document.createTextNode("d");
-    //sidesText.setAttribute("class", "dice-text");
     tag.appendChild(sidesText);
 
     var sides = document.createElement("input");
@@ -29,16 +37,14 @@ function addDice() {
     sides.setAttribute("type", "number");
     tag.appendChild(sides);
 
-    //täringute arv
-    var amountText = document.createTextNode("Throws: ");
-    //amountText.setAttribute("class", "dice-text");
-    tag.appendChild(amountText);
+    //modifier
+    var modifierText = document.createTextNode("+");
+    tag.appendChild(modifierText);
 
-    var amount = document.createElement("input");
-    amount.setAttribute("id", "amount");
-    amount.setAttribute("type", "number");
-    tag.appendChild(amount);
-
+    var modifier = document.createElement("input");
+    modifier.setAttribute("id", "modifier");
+    modifier.setAttribute("type", "number");
+    tag.appendChild(modifier);
 
     //advantage
     var advantageText = document.createTextNode("advantage: ");
@@ -56,14 +62,7 @@ function addDice() {
     disadvantage.setAttribute("type", "checkbox");
     tag.appendChild(disadvantage);
 
-    //modifier
-    var modifierText = document.createTextNode("Modifier: ");
-    tag.appendChild(modifierText);
 
-    var modifier = document.createElement("input");
-    modifier.setAttribute("id", "modifier");
-    modifier.setAttribute("type", "number");
-    tag.appendChild(modifier);
 
     // bloki kustutamise nupp
     var deleteBtn = document.createElement("button");
@@ -117,7 +116,7 @@ function calculateThrows() {
                 //text += cars[i] + "<br>";
 
                 var tag = document.createElement("p");
-                tag.setAttribute("class","throw");
+                tag.setAttribute("class", "throw");
 
 
                 var dmg = Math.floor(Math.random() * (sides) + 1);
@@ -147,9 +146,9 @@ function calculateThrows() {
 
             // die total
             var tag = document.createElement("p");
-            var text = document.createTextNode("d"+ sides +" total: " + diceTotal);
+            var text = document.createTextNode("d" + sides + " total: " + diceTotal);
             tag.appendChild(text);
-            tag.setAttribute("class","total");
+            tag.setAttribute("class", "total");
             element.appendChild(tag);
         }
     })
@@ -157,7 +156,7 @@ function calculateThrows() {
     var tag = document.createElement("p");
     var text = document.createTextNode("ALL DICE TOTAL: " + total);
     tag.appendChild(text);
-    tag.setAttribute("class","total");
+    tag.setAttribute("class", "total");
     element.appendChild(tag);
 
     //todo viske värv punane kui critical hit (20 dicel 20)
