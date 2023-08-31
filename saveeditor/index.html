@@ -38,7 +38,7 @@
             <span>(tail=</span> <span id="fileTail" style="color: red; font-weight: bold;"></span> <span>)</span>
         </div>
 
-        <div class="custom-button" onclick="decodeFileFromBase64()">Decode (currently only base64)</div>
+        <div class="custom-button" id="decodeButton">Decode (currently only base64)</div>
     </div>
 
     <div class="page">
@@ -46,7 +46,9 @@
         <button id="copyDecodedButton">Copy to clipboard</button>
         <textarea id="fileContentDecoded" class="input-field" rows="30"></textarea>
 
-        <div class="custom-button" onclick="decodedFileToBase64()">Re-encode (will add header and tail)</div>
+        <div class="custom-button" id="convertToJsonButton">Reformat to readable JSON</div>
+        <br>
+        <div class="custom-button" id="reEncodeButton">Re-encode and download (will add header and tail)</div>
     </div>
 
 </body>
@@ -59,7 +61,7 @@
 
     let fileName = ''
 
-
+    // file upload -------------------------------------------------------------------------
     const fileInputDrop = document.getElementById('fileInputDrop');
     fileInputDrop.addEventListener('dragover', (e) => {
         e.preventDefault();
@@ -94,6 +96,7 @@
         }
     });
 
+    // file handling -----------------------------------------------------------------------
     async function handleFiles(files) {
         for (const file of files) {
             console.log(file.name)
@@ -102,7 +105,6 @@
             fileName = file.name
         }
     }
-
 
     async function readFileAsText(file) {
         return new Promise((resolve, reject) => {
@@ -120,6 +122,7 @@
         });
     }
 
+    // header length ----------------------------------------------------------------------
     const headerLengthInput = document.getElementById('headerLengthInput');
     const fileHeader = document.getElementById('fileHeader');
     headerLengthInput.addEventListener('change', (e) => {
@@ -129,6 +132,7 @@
         }
     });
 
+    // tail length ----------------------------------------------------------------------
     const tailLengthInput = document.getElementById('tailLengthInput');
     const fileTail = document.getElementById('fileTail');
     tailLengthInput.addEventListener('change', (e) => {
@@ -139,6 +143,7 @@
         }
     });
 
+    // copy buttons ---------------------------------------------------------------------
     const copyRawButton = document.getElementById('copyRawButton');
     copyRawButton.addEventListener('click', () => {
         fileContentRaw.select();
@@ -161,16 +166,16 @@
         }, 1500);
     });
 
-    function decodeFileFromBase64() {
+    // encoding and decoding ----------------------------------------------------------------
+    const decodeButton = document.getElementById('decodeButton');
+    decodeButton.addEventListener('click', () => {
         const headerLength = headerLengthInput.value
         const tailLength = tailLengthInput.value
-
         let encodedString = fileContentRaw.value
-        if (headerLength) {
-            encodedString = encodedString.slice(headerLength)
-        } if (tailLength) {
-            encodedString = encodedString.slice(0, encodedString.length - tailLength)
-        }
+
+        if (headerLength) encodedString = encodedString.slice(headerLength)
+        if (tailLength) encodedString = encodedString.slice(0, encodedString.length - tailLength)
+
         try {
             const decodedString = atob(encodedString)
             fileContentDecoded.value = decodedString
@@ -178,9 +183,10 @@
         catch (e) {
             fileContentDecoded.value = "Not valid base64 string! (Most likely contains game-specific header or tail)"
         }
-    }
+    });
 
-    function decodedFileToBase64() {
+    const reEncodeButton = document.getElementById('reEncodeButton');
+    reEncodeButton.addEventListener('click', () => {
         const header = fileContentRaw.value.slice(0, headerLengthInput.value)
         const tail = fileContentRaw.value.slice(-tailLengthInput.value)
 
@@ -192,8 +198,9 @@
         catch (e) {
             fileContentDecoded.value = "Not valid base64 string! (Most likely contains game-specific header or tail)"
         }
-    }
+    });
 
+    // downloading the altered file
     function initFileDownload(content) {
         const blob = new Blob([content], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
@@ -208,5 +215,14 @@
 
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
+    }
+
+    // json mingling ---------------------------------------------------------
+    function stringToJson(content) {
+        return JSON.parse(content)
+    }
+
+    function jsonToString(content) {
+        return JSON.stringify(content)
     }
 </script>
