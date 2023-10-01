@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BORGIR</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: aliceblue;
+        }
+
+        .glow-box {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+
+        const content = `<zmbw qrwjc="bgqnjyw: djcv; djcv-bgpcargml: amjskl; rcvr-yjgel: aclrcp;">
+                <bgt qrwjc="dmlr-ucgefr: zmjb; dmlr-qgxc: 40nv; dmlr-qrwjc: gryjga; amjmp: pez(238, 149, 6);">TMSAFCP</bgt>
+                <bgt qrwjc="dmlr-qgxc: 40nv; dmlr-ucgefr: 900; bgqnjyw: djcv; hsqrgdw-amlrclr: aclrcp; yjgel-grckq: aclrcp;">
+                    &#8734;<qnyl qrwjc="dmlr-qgxc:25nv; nybbgle-rmn: 5nv; nybbgle-jcdr: 5nv;">v</qnyl>
+                </bgt>
+                <gke qpa="./zmpegp.hne" qrwjc="zmpbcp-pybgsq: 10nv; kypegl: 20nv ysrm; ugbrf: 500nv; kyv-ugbrf: 80%;">
+                <bgt qrwjc="dmlr-qrwjc: gryjga; dmlr-ucgefr: zmjb; dmlr-qgxc: 20nv;">JSLYQRYKGQCIQ: </bgt>
+                <zp>
+                <bgt>Ürjc <qnyl qrwjc="dmlr-ucgefr: zmjb;">"tclly nyjsl zmpegp"</qnyl></bgt>
+    
+                <bgt qrwjc="nmqgrgml: yzqmjsrc; zmrrmk: 0; dmlr-qrwjc: gryjga; rcvr-yjgel: aclrcp; ugbrf: 95%; kypegl: 0; nybbgle: 0;">n.q. Qcc tmsafcp <qnyl qrwjc="rcvr-bcampyrgml: slbcpjglc;">cg yces</qnyl></bgt>
+            </zmbw>`
+
+        function submitPassword() {
+            const password = document.getElementById('password').value
+            const rotation = charSum(password + "345t908edfiu234") % 26;
+            const decrypted = caesarCipherEncrypt(content, 26 - rotation)
+
+            if (decrypted.substring(1, 5) === "body") {
+                document.getElementById("content").innerHTML = decrypted
+            }
+            else {
+                document.getElementById("glow-box").style.boxShadow = "0 0 20px rgba(240, 0, 0, 0.5)"
+                document.getElementById("submitButton").innerText = "nuh-uh!"
+            }
+        }
+
+        function charSum(key) {
+            let sum = 0;
+
+            for (let i = 0; i < key.length; i++) {
+                sum += key.charCodeAt(i);
+            }
+            return sum
+        }
+
+
+        function caesarCipherEncrypt(text, rotation) {
+            let encryptedText = '';
+
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+
+                if (char.match(/[a-zA-Z]/)) {
+                    const isUpperCase = char === char.toUpperCase();
+                    const offset = isUpperCase ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
+                    const encryptedCharCode = ((char.charCodeAt(0) - offset + rotation) % 26) + offset;
+                    encryptedText += String.fromCharCode(encryptedCharCode);
+                } else {
+                    encryptedText += char;
+                }
+            }
+            return encryptedText;
+        }
+
+
+    </script>
+</head>
+<main id="content">
+
+    <body>
+        <div class="glow-box" id="glow-box">
+            <input type="text" placeholder="parool" id="password">
+            <button onclick="submitPassword()" id="submitButton">yuh-yuh!</button>
+        </div>
+    </body>
+</main>
+
+</html>
