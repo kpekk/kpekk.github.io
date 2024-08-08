@@ -122,6 +122,8 @@
 			let elements = document.getElementsByClassName('pulse');
 
 			for (let element of elements) {
+				element.classList.remove('pulse-once');
+				void element.offsetWidth;
 				element.classList.add('pulse-once');
 
 				element.addEventListener('animationend', function () {
