@@ -2,7 +2,6 @@
     font-family: monospace;
     color: aliceblue;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    background-color: rgb(23, 23, 23);
 }
 
 .pulse {
@@ -41,6 +40,20 @@
 @keyframes pulse-red {
     0% {
         box-shadow: 0 0 0 0 rgba(216, 1, 1, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10vh rgba(51, 217, 178, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+    }
+}
+
+@keyframes pulse-purple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(171, 14, 218, 0.7);
     }
 
     70% {
